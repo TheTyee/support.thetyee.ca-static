@@ -1,2 +1,101 @@
 @import "bootstrap.min.css";
-@import "recurly.min.css";
+@import "recurly.css";
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  box-shadow:         @style @c;
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow:    @style @c;
+}
+
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+/* Recurly overrides */
+
+#recurly-subscribe .due_now {
+    display: none;
+}
+
+#recurly-subscribe .name {
+    display: none;
+}
+
+#recurly-subscribe .recurly .plan .recurring_cost {
+    text-align: left;
+    float: left;
+}
+
+.recurly .contact_info, .recurly .billing_info, .recurly .accept_tos, .recurly .footer {
+    padding: 0;
+}
+
+.recurly button.submit {
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    font-weight: normal;
+    cursor: pointer;
+}
+.recurly button.submit:hover {
+    color: white;
+    text-decoration: none;
+    background-color: darken( #5cb85c, 10%);
+}
+
+.recurly .field .placeholder {
+    line-height: inherit;
+}
+
+.tab-content, #content-inner {
+    min-height: 600px;
+    background: white;
+    border-left: 1px solid #ddd;
+    padding: 20px 20px 20px 20px;
+    .box-shadow(3px 3px 3px 0, 20%)
+}
+
+#form-monthly {
+}
+
+#content-inner form {
+    .btn-group {
+        display: block;
+    }
+    .btn-group label {
+        margin-bottom: 30px;
+    }
+    .submit-button {
+        clear: both;
+    }
+}
+
+#footer {
+    padding: 40px 10px 20px 10px;
+}
+
+body {
+    background: #eee;
+}
+
+#content-inner {
+    border-top: 1px solid #ddd;
+}
+
+header {
+    margin-top: 10px;
+    padding-top: 80px;
+    background: url('/ui/img/tyee-logo.png') center top no-repeat;
+    text-align: center;
+    hr {
+        width: 80%;
+        color: lighten( #eee, 10% );
+    }
+}
