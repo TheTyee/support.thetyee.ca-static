@@ -2,13 +2,13 @@
 @import "recurly.css";
 
 .box-shadow(@style, @c) when (iscolor(@c)) {
-  box-shadow:         @style @c;
-  -webkit-box-shadow: @style @c;
-  -moz-box-shadow:    @style @c;
+    box-shadow:         @style @c;
+    -webkit-box-shadow: @style @c;
+    -moz-box-shadow:    @style @c;
 }
 
 .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+    .box-shadow(@style, rgba(0, 0, 0, @alpha));
 }
 
 /* Recurly overrides */
@@ -54,12 +54,20 @@
     line-height: inherit;
 }
 
+#content {
+    max-width: 800px;
+    .recurly {
+        width: auto;
+        max-width: 500px;
+    }
+}
+
 .tab-content, #content-inner {
     min-height: 600px;
     background: white;
     border-left: 1px solid #ddd;
     padding: 20px 20px 20px 20px;
-    .box-shadow(3px 3px 3px 0, 20%)
+    .box-shadow(3px 3px 3px 0, 20%);
 }
 
 #form-monthly {
@@ -93,6 +101,7 @@ header {
     margin-top: 10px;
     padding-top: 80px;
     background: url('/ui/img/tyee-logo.png') center top no-repeat;
+    padding-bottom: 28px;
     text-align: center;
     hr {
         width: 80%;
