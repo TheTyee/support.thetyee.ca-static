@@ -15,4 +15,4 @@
 #footer{padding:40px 10px 20px 10px}
 body{background:#eee}
 #content-inner{border-top:1px solid #ddd}
-header{margin-top:10px;padding-top:80px;background:url('/ui/img/tyee-logo.png') center top no-repeat;padding-bottom:28px;text-align:center}header hr{width:80%;color:#fff}
+header{margin-top:10px;padding-top:80px;background:url('../ui/img/tyee-logo.png') center top no-repeat;padding-bottom:28px;text-align:center}header hr{width:80%;color:#fff}
