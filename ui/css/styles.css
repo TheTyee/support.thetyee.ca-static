@@ -92,7 +92,7 @@ h1 {
   margin: 40px 0 20px;
 }
 h1 span {
-  background: url('/ui/img/triangle.png') no-repeat center;
+  background: url('../img/triangle.png') no-repeat center;
   padding-left: 26px;
 }
 .lead {
@@ -219,17 +219,17 @@ h1 span {
   border-top: 1px solid #dbe7a0;
 }
 header {
-  background: url('../ui/img/header-bg-national.png') repeat;
+  background: url('../img/header-bg-national.png') repeat;
 }
 header h1 {
-  background: url('../ui/img/tyee-logo-mapleleaf.png') no-repeat center center;
+  background: url('../img/tyee-logo-mapleleaf.png') no-repeat center center;
   border: none;
 }
 footer,
 #faq,
 #featurettes1,
 #featurettes2 {
-  background: url('../ui/img/section-bg-mapleleafs.png') repeat;
+  background: url('../img/section-bg-mapleleafs.png') repeat;
 }
 @media screen and (min-width: 768px) {
   /* Adjust for large desktop */
