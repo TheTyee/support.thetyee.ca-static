@@ -11,8 +11,332 @@
     .box-shadow(@style, rgba(0, 0, 0, @alpha));
 }
 
-/* Recurly overrides */
 
+@greenLight: #F2F6E2;
+@greenMedium: #A5BD31;
+@greenDark: #6A8000;
+@greenDarker: #8EAB00;
+@greenHeader: #A6BE30;
+@greenText: #8E9E38;
+@greenArrow: #A4BC30;
+@highlightRed: #E74117;
+@greyDark: #5D5D5C;
+
+
+// BASE
+body {
+    //background: @greenLight;
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+}
+a {
+    color: @highlightRed;
+    border-bottom: 1px dotted darken( @highlightRed, 20% );
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px dotted black;
+}
+h2, h3 {
+    font-family: "source-sans-pro",sans-serif;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lighten( @greyDark, 10% );
+}
+
+.btn-primary, .btn-national {
+    color: #fff;
+    background-color: @highlightRed;
+    border-color: darken( @highlightRed, 20%);
+    font-family: "source-sans-pro",sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 10px; // Need to reset this for larger screens
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background-color: darken( @highlightRed, 20%);
+    border-color: darken( @highlightRed, 40%);
+}
+
+// LAYOUT (divide page into sections; hold modules together)
+header {
+    background: @greyDark;
+    overflow: hidden;
+    height: 67px;
+}
+
+footer, #faq, #featurettes1, #featurettes2 {
+    background: @greenLight;
+    padding: 20px 0 20px 0;
+}
+
+header h1 {
+    background: url('/ui/img/tyee-logo-national-150px.png') no-repeat 50px 8px @greenHeader;
+    margin: 0;
+    padding: 14px 0 10px 0;
+    text-indent: -5000px;
+    width: 250px;
+    border-right: 1px solid white;
+    float: left;
+}
+
+header h2 {
+    color: white;
+    float: left;
+    font-family: "open-sans",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8em;
+    letter-spacing: 0.1em;
+    position: relative;
+    top: 2px;
+    left: 24px;
+    text-transform: uppercase;
+    border-bottom: none;
+}
+
+#content-inner {
+    margin-bottom: 40px;
+}
+
+// MODULES (reusable chunks)
+#harper {
+    float: right;
+}
+
+#campaign-copy {
+    margin-bottom: 10px;
+    padding: 0 10px 0 10px;
+}
+    h1 {
+        font-family: "source-sans-pro",sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        color: @greyDark;
+        font-size: 40px;
+        margin: 40px 0 20px;
+        span {
+            background: url('/ui/img/triangle.png') no-repeat center;
+            padding-left: 26px;
+        }
+    }
+    .lead {
+        font-family: "source-sans-pro",sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: @greenMedium;
+    }
+
+
+#people {
+    h3 {
+        border-bottom: none;
+        text-transform: uppercase;
+        color: lighten( @greyDark, 20% );
+        font-family: "source-sans-pro",sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+    }
+    blockquote {
+        font-family: "source-sans-pro",sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        color: @greenText; 
+        border-left: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+}
+
+
+#campaign-widget {
+    background-color: @greenLight;
+    border-color: darken( @greenLight, 20%);
+    .progress-bar {
+        background-color: @highlightRed;
+    }
+}    
+.badge {
+    background-color: @greenArrow;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 58.25%%; // Need to adjust to ~45% on larger screens
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    iframe,
+    object,
+    embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 500px;
+    }
+}
+
+#form {
+    .tab-content {
+        margin-top: 20px;
+    }
+    margin-bottom: 40px;
+}
+
+#builder-list {
+    margin-bottom: 20px;
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+            display: inline;
+        }
+        li:after {
+            content: ", ";
+        }
+        li.last:after {
+            content: ".";
+        }
+    }
+}
+#partner-orgs {
+    .modal-body ul {
+        list-style: none;
+        margin: 0 0 40px 0;
+        padding: 0;
+    }
+    .modal-body ul li a {
+        text-decoration: none;
+        border: none;
+    }
+}
+
+#campaign-widget {
+    width: 300px;
+    font-size: 110%;
+    .raised, .days {
+        font-family: "source-sans-pro",sans-serif;
+        font-size: 300%;
+        font-weight: bold;
+    }
+    .raised {
+        color: @highlightRed;
+        letter-spacing: 0.1em;
+    }
+    .raised-goal {
+        color: @highlightRed;
+    }
+    .contributor-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 25px;
+        overflow: hidden;
+    }
+    .reader-priorities {
+    text-align: left;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        }
+    }
+    hr.soften {
+        margin: 0 0 5px 0;
+        border-top: 1px solid lighten( @greenMedium, 30% );
+    }
+}
+
+// STATE (how module appears in a given state, e.g., hidden/expanded)
+
+// THEME (adjust layout or module based on a theme)
+header {
+    background: url('/ui/img/header-bg-national.png') repeat;
+    h1 {
+        background: url('/ui/img/tyee-logo-mapleleaf.png') no-repeat center center;
+        border: none;
+    }
+}
+footer, #faq, #featurettes1, #featurettes2 {
+    background: url('/ui/img/section-bg-mapleleafs.png') repeat;
+}
+
+// END OF SECTIONS
+
+
+///////////////////////////////////////////////////////////////
+// Adjust for larger screens
+///////////////////////////////////////////////////////////////
+@media screen and (min-width: 768px) { /* Adjust for large desktop */
+  .video-container { 
+    padding-bottom: 40%; 
+    margin-bottom: -40px;
+    iframe,
+    object,
+    embed {
+        width: 95%;
+        height: 95%;
+        max-height: 400px;
+        }
+    }
+    #campaign-copy {
+        padding: 0 10px 0 10px;
+        h1 {
+            font-size: 70px;
+            margin: 40px 0 40px;
+            span {
+                background: url('/ui/img/triangle.png') no-repeat center;
+                padding-left: 18px;
+            }
+        }
+        .lead {
+            font-weight: 300;
+        }
+    }
+    .btn-primary, .btn-national {
+        padding: 10px 16px; 
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /* Adjust for standard desktop */
+  .container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width: 992px) { /* portrait tablets */ 
+  .video-container { 
+    padding-bottom: 60%; 
+    margin-bottom: 40px;
+    iframe,
+    object,
+    embed {
+        width: 99%;
+        height: 99%;
+        //max-height: 400px;
+        }
+    }
+    #campaign-widget {
+        width: 100%;
+    }
+}
+
+
+/// OLD STYLES BELOW 
+/* Recurly overrides */
 #recurly-subscribe .due_now {
     display: none;
 }
@@ -53,9 +377,12 @@
 .recurly .field .placeholder {
     line-height: inherit;
 }
+.recurly input[type=text] {
+    height: 24px;
+}
 
 #content {
-    max-width: 800px;
+    //max-width: 800px;
     .recurly {
         width: auto;
         max-width: 500px;
@@ -85,16 +412,13 @@ and (max-device-width : 480px) {
 
 
 
-.tab-content, #content-inner {
-    min-height: 600px;
-    background: white;
-    border-left: 1px solid #ddd;
-    padding: 20px 20px 20px 20px;
-    .box-shadow(3px 3px 3px 0, 20%);
-}
-
-#form-monthly {
-}
+//.tab-content, #content-inner {
+    //min-height: 600px;
+    //background: white;
+    //border-left: 1px solid #ddd;
+    //padding: 20px 20px 20px 20px;
+    //.box-shadow(3px 3px 3px 0, 20%);
+//}
 
 #content-inner form {
     .btn-group {
@@ -115,28 +439,5 @@ form #newspriorities {
     }
 }
 
-#footer {
-    padding: 40px 10px 20px 10px;
-}
-
-body {
-    background: #eee;
-}
-
-#content-inner {
-    border-top: 1px solid #ddd;
-}
-
-header {
-    margin-top: 10px;
-    padding-top: 80px;
-    background: url('../img/tyee-logo.png') center top no-repeat;
-    padding-bottom: 28px;
-    text-align: center;
-    hr {
-        width: 80%;
-        color: lighten( #eee, 10% );
-    }
-}
 
 
