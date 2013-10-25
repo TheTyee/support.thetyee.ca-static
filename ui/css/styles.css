@@ -51,7 +51,7 @@ footer,
   padding: 20px 0 20px 0;
 }
 header h1 {
-  background: url('../ui/img/tyee-logo-national-150px.png') no-repeat 50px 8px #a6be30;
+  background: url('../img/tyee-logo-national-150px.png') no-repeat 50px 8px #a6be30;
   margin: 0;
   padding: 14px 0 10px 0;
   text-indent: -5000px;
@@ -286,6 +286,14 @@ footer,
   #campaign-widget {
     width: 100%;
   }
+}
+html.lt-ie7 body div,
+html.lt-ie7 header {
+  display: none;
+}
+html.lt-ie7 .chromeframe {
+  display: block;
+  padding: 20px;
 }
 /* Recurly overrides */
 #recurly-subscribe .due_now {
