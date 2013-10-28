@@ -43,13 +43,11 @@ $(document).ready(function(){
             $(".hours").html( result.left_hours);
             $(".minutes").html( result.left_mins);
             $.each( result.contributors, function(index, c) {
-                console.log ( index, c );
                 $('ul.contributor-list li#' + index ).replaceWith('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>'); 
             });
             $('.contributor-list li:first').slideUp( function () { $(this).appendTo($('.contributor-list')).slideDown(); });
             $('ul.priorities li').remove();
             $.each( result.votes, function(index, v) {
-                console.log( index, v );
                 $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>'); 
             });
             if(result.percentage > 99.99) {
