@@ -36,7 +36,7 @@ function FormatNumberBy3(num, decpoint, sep) {
 }
 
 $(document).ready(function(){
-    $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-18&goal=100000&date_start=2013-10-24", function(data){
+    $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25", function(data){
         var result = data.result;
         $(".goal").text( result.goal_formatted );
         $(".percentage").text( result.percentage );
@@ -66,7 +66,7 @@ $(document).ready(function(){
     });
     var progress = setInterval(function(){
         /* query the completion percentage from the server */
-        $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-18&goal=100000&date_start=2013-10-24", function(data){
+        $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25", function(data){
             var result = data.result;
             $(".percentage").html( result.percentage );
             $(".count").html( result.people );
