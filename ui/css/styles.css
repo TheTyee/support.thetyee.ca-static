@@ -306,6 +306,17 @@ html.lt-ie7 .chromeframe {
   text-align: left;
   float: left;
 }
+#recurly-subscribe .cost {
+  float: left;
+}
+#recurly-subscribe .interval {
+  font-weight: bold;
+  float: left;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding-top: 16px;
+  margin-left: 10px;
+}
 .recurly .contact_info,
 .recurly .billing_info,
 .recurly .accept_tos,
