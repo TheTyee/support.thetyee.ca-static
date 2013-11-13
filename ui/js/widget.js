@@ -36,6 +36,7 @@ function FormatNumberBy3(num, decpoint, sep) {
 }
 
 $(document).ready(function(){
+
     $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25", function(data){
         var result = data.result;
         $(".goal").text( result.goal_formatted );
@@ -95,4 +96,17 @@ $(document).ready(function(){
 
         })
     }, 5000);
-    });
+
+    $.getJSON("https://widgets.thetyee.ca/builderlist.json?cb=?", function(data){
+    var result = data.result;
+    var builders = result.builderlist;
+    var last     = builders.pop();
+    var count = result.count;
+    $("#builder-count").text( FormatNumberBy3(count, ".", ",") );
+    $.each( builders, function(index, c) {
+                $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
+           });
+    $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');  
+        });
+
+});
