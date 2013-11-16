@@ -39,6 +39,8 @@ $(document).ready(function(){
 
     $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25", function(data){
         var result = data.result;
+        var left_days = result.left_days >= 1 ? result.left_days : 0;
+        console.log( left_days );
         $(".goal").text( result.goal_formatted );
         $(".percentage").text( result.percentage );
         $(".count").text( result.people );
@@ -47,7 +49,7 @@ $(document).ready(function(){
         $(".progress-bar").attr('aria-valuenow',result.percentage);
         $(".progress-bar").attr('aria-valuemin', 0);
         $(".progress-bar").attr('aria-valuemax',result.goal);
-        $(".days").html( result.left_days);
+        $(".days").html( left_days);
         $(".hours").html( result.left_hours);
         $(".minutes").html( result.left_mins);
         $.each( result.contributors, function(index, c) {
@@ -63,12 +65,17 @@ $(document).ready(function(){
                 $('.amount').text(FormatNumberBy3(Math.floor(this.countNum), ".", ","));
             }
         });
-
+        if ( result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1 ) {
+            $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
+        } else if ( result.left_days == 0 ) {
+            $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
+        };
     });
     var progress = setInterval(function(){
         /* query the completion percentage from the server */
         $.getJSON("https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25", function(data){
             var result = data.result;
+            var left_days = result.left_days >= 1 ? result.left_days : 0;
             $(".percentage").html( result.percentage );
             $(".count").html( result.people );
             $(".amount").text( FormatNumberBy3(result.raised, ".", ","));
@@ -77,7 +84,7 @@ $(document).ready(function(){
             $(".progress-bar").attr('aria-valuenow',result.percentage);
             $(".progress-bar").attr('aria-valuemin', 0);
             $(".progress-bar").attr('aria-valuemax',result.goal);
-            $(".days").html( result.left_days);
+            $(".days").html( left_days);
             $(".hours").html( result.left_hours);
             $(".minutes").html( result.left_mins);
             $.each( result.contributors, function(index, c) {
