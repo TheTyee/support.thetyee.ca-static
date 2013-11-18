@@ -34,7 +34,7 @@ $(document).ready(function(){
         };
         if (  result.left_days == 0 ) {
             $(".hours").html( '<span class="hour"">' + left_hours + '</span> hours, ');
-            $(".minutes").html( '<span class="minute">' + left_mins + '</span> minutes reamining.');
+            $(".minutes").html( '<span class="minute">' + left_mins + '</span> minutes remaining.');
         };
         if ( mode == 'once' ) {
             $({countNum: $('span.amount').text()}).animate({countNum: result.raised }, {
