@@ -1,5 +1,4 @@
 @import "bootstrap.min.css";
-
 @import "recurly.css";
 body {
   font-family: "source-sans-pro", sans-serif;
@@ -198,6 +197,12 @@ h1 span {
 #campaign-widget .raised-goal {
   color: #e74117;
 }
+#campaign-widget .hour,
+#campaign-widget .minute {
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 300%;
+  font-weight: bold;
+}
 #campaign-widget .contributor-list {
   list-style: none;
   margin: 0;
@@ -273,7 +278,8 @@ footer,
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  /* portrait tablets */.video-container {
+  /* portrait tablets */
+  .video-container {
     padding-bottom: 60%;
     margin-bottom: 40px;
   }
