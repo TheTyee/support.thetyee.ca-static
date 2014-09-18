@@ -2,14 +2,14 @@ $(document).ready(function(){
     url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25";
 
     $.getJSON(url, function(data){
-        console.log( 'once' );
+        //console.log( 'once' );
         updateResults( data, 'once' );
     });
 
     var progress = setInterval(function(){
         /* query the completion percentage from the server */
         $.getJSON(url, function(data){
-            console.log( 'update' );
+            //console.log( 'update' );
             updateResults( data, 'update' );
         })
     }, 5000);
@@ -20,9 +20,9 @@ $(document).ready(function(){
         var left_days = result.left_days >= 1 ? result.left_days : 0;
         var left_hours = result.left_hours >= 1 ? result.left_hours : 0;
         var left_mins = result.left_mins >= 1 ? result.left_mins : 0;
-        console.log( left_mins );
-        console.log( left_hours );
-        console.log( left_days );
+        //console.log( left_mins );
+        //console.log( left_hours );
+        //console.log( left_days );
 
         $(".goal").text( result.goal_formatted );
         $(".percentage").text( result.percentage );
