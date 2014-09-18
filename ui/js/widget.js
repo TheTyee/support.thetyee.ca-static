@@ -15,7 +15,7 @@ $(document).ready(function(){
     }, 5000);
 
     function updateResults ( data, mode ) {
-        console.log( 'updateResults' );
+        //console.log( 'updateResults' );
         var result = data.result;
         var left_days = result.left_days >= 1 ? result.left_days : 0;
         var left_hours = result.left_hours >= 1 ? result.left_hours : 0;
