@@ -49,6 +49,10 @@ footer,
   background: #f2f6e2;
   padding: 20px 0 20px 0;
 }
+
+#evergreen footer {
+  background: none;
+}
 header h1 {
   background: url('../img/tyee-logo-national-150px.png') no-repeat 50px 8px #a6be30;
   margin: 0;
