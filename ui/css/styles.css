@@ -19,6 +19,9 @@ h3 {
   padding-bottom: 5px;
   border-bottom: 1px solid #777775;
 }
+img {
+  max-width: 100%;
+}
 .btn-primary,
 .btn-national {
   color: #fff;
@@ -49,9 +52,24 @@ footer,
   background: #f2f6e2;
   padding: 20px 0 20px 0;
 }
-
-#evergreen footer {
-  background: none;
+.testimonial p {
+  font-family: "source-sans-pro", sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  color: #5d5d5c;
+  font-size: 2.5rem;
+}
+.testimonial p.cite {
+  font-style: italic;
+}
+.testimonial {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.testimonial img {
+  border-radius: 50%;
+  margin-top: 15px;
+  display: none;
 }
 header h1 {
   background: url('../img/tyee-logo-national-150px.png') no-repeat 50px 8px #a6be30;
@@ -273,6 +291,10 @@ footer,
     font-weight: 400;
     font-size: 18px;
   }
+  .testimonial p.quotation {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   /* Adjust for standard desktop */
@@ -295,6 +317,11 @@ footer,
   }
   #campaign-widget {
     width: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .testimonial img {
+    display: block;
   }
 }
 html.lt-ie7 body div,
