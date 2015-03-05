@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=national&date_end=2013-11-19&goal=100000&date_start=2013-10-25";
+    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=spring2015&date_end=2015-04-01&goal=100000&date_start=2015-02-01";
 
     $.getJSON(url, function(data){
         //console.log( 'once' );
@@ -11,7 +11,7 @@ $(document).ready(function(){
         $.getJSON(url, function(data){
             //console.log( 'update' );
             updateResults( data, 'update' );
-        })
+        });
     }, 5000);
 
     function updateResults ( data, mode ) {
@@ -38,11 +38,11 @@ $(document).ready(function(){
         } else if ( left_days == 1 ) {
             $(".days").html( left_days );
             $("i.days-left").html( "day left" );
-        };
-        if (  left_days == 0 ) {
+        }
+        if (  left_days === 0 ) {
             $(".hours").html( '<span class="hour"">' + left_hours + '</span> hours, ');
             $(".minutes").html( '<span class="minute">' + left_mins + '</span> minutes remaining.');
-        };
+        }
         if ( mode == 'once' ) {
             $({countNum: $('span.amount').text()}).animate({countNum: result.raised }, {
                 duration: 4000,
@@ -59,10 +59,10 @@ $(document).ready(function(){
             });
             if ( result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1 ) {
                 $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
-            } else if ( result.left_days == 0 ) {
+            } else if ( result.left_days === 0 ) {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
-            };
-        } else if ( mode == 'update' ) {
+            }
+        } else if ( mode === 'update' ) {
             $(".amount").text( FormatNumberBy3(result.raised, ".", ","));
             $('.contributor-list li:first').slideUp( function () { $(this).appendTo($('.contributor-list')).slideDown(); });
             $('ul.priorities li').remove();
@@ -74,8 +74,8 @@ $(document).ready(function(){
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
                 $('.remaining').text('$0');
             }
-        };
-    };
+        }
+    }
 
     $.getJSON("https://widgets.thetyee.ca/builderlist.json?cb=?", function(data){
         var result = data.result;
