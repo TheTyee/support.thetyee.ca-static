@@ -1,5 +1,5 @@
 $(function() {
-    var tyeeAPI = "http://api.thetyee.ca/v1/latest/4",
+    var tyeeAPI = "https://api.thetyee.ca/v1/latest/4",
         recentStoryHead = '<h3 class="recent-stories">Recent Stories by The Tyee</h3>',
         tyeeStories = [recentStoryHead];
 
