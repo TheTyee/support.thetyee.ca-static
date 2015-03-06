@@ -15,7 +15,9 @@ a:hover {
 }
 h2,
 h3 {
-  font-family: "source-sans-pro", sans-serif;
+  font-family: "proxima-nova-sc-osf", sans-serif;
+  font-style: normal;
+  font-weight: 800;
   padding-bottom: 5px;
   border-bottom: 1px solid #777775;
 }
@@ -43,7 +45,7 @@ img {
 header {
   background: #5d5d5c;
   overflow: hidden;
-  height: 67px;
+  height: 63px;
 }
 footer,
 #faq,
@@ -83,9 +85,9 @@ header h1 {
 header h2 {
   color: white;
   float: left;
-  font-family: "open-sans", sans-serif;
+  font-family: "proxima-nova-alt", sans-serif;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 800;
   font-size: 1.8em;
   letter-spacing: 0.1em;
   position: relative;
@@ -104,24 +106,27 @@ header h2 {
   margin-bottom: 10px;
   padding: 0 10px 0 10px;
 }
-h1 {
-  font-family: "source-sans-pro", sans-serif;
+#campaign-copy h1 {
+  font-family: "proxima-nova-alt", sans-serif;
   font-style: normal;
-  font-weight: 200;
-  color: #5d5d5c;
+  font-weight: 800;
+  color: #d51e00;
   font-size: 40px;
   margin: 40px 0 20px;
 }
-h1 span {
+#campaign-copy h1 span.join-us {
+  color: #a6be30;
+}
+#campaign-copy h1 span.triangle {
   background: url('../img/triangle.png') no-repeat center;
   padding-left: 26px;
 }
-.lead {
-  font-family: "source-sans-pro", sans-serif;
+#campaign-copy .lead {
+  font-family: "proxima-nova-alt", sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 800;
   text-transform: uppercase;
-  color: #a5bd31;
+  color: #a6be30;
 }
 #people h3 {
   border-bottom: none;
@@ -278,7 +283,7 @@ footer,
     font-size: 70px;
     margin: 40px 0 40px;
   }
-  #campaign-copy h1 span {
+  #campaign-copy h1 span.triangle {
     background: url('../img/triangle.png') no-repeat center;
     padding-left: 18px;
   }
@@ -419,4 +424,8 @@ html.lt-ie7 .chromeframe {
 form #newspriorities label {
   font-weight: bold;
   text-transform: uppercase;
+}
+.awards {
+  text-align: center;
+  margin: 20px 0 20px 0;
 }

@@ -21,7 +21,8 @@
 @greenArrow: #A4BC30;
 @highlightRed: #E74117;
 @greyDark: #5D5D5C;
-
+@redDark: #d51e00;
+@greenHeading: #9fb501;
 
 // BASE
 body {
@@ -39,7 +40,9 @@ a:hover {
     border-bottom: 1px dotted black;
 }
 h2, h3 {
-    font-family: "source-sans-pro",sans-serif;
+    font-family: "proxima-nova-sc-osf",sans-serif;
+    font-style: normal;
+    font-weight: 800;
     padding-bottom: 5px;
     border-bottom: 1px solid lighten( @greyDark, 10% );
 }
@@ -68,7 +71,7 @@ img {
 header {
     background: @greyDark;
     overflow: hidden;
-    height: 67px;
+    height: 63px;
 }
 
 footer, #faq, #featurettes1, #featurettes2 {
@@ -115,9 +118,9 @@ header h1 {
 header h2 {
     color: white;
     float: left;
-    font-family: "open-sans",sans-serif;
+    font-family: "proxima-nova-alt",sans-serif;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 800;
     font-size: 1.8em;
     letter-spacing: 0.1em;
     position: relative;
@@ -139,26 +142,29 @@ header h2 {
 #campaign-copy {
     margin-bottom: 10px;
     padding: 0 10px 0 10px;
-}
     h1 {
-        font-family: "source-sans-pro",sans-serif;
+        font-family: "proxima-nova-alt",sans-serif;
         font-style: normal;
-        font-weight: 200;
-        color: @greyDark;
+        font-weight: 800;
+        color: @redDark;
         font-size: 40px;
         margin: 40px 0 20px;
-        span {
+        span.join-us {
+            color: @greenHeader;
+        }
+        span.triangle {
             background: url('../img/triangle.png') no-repeat center;
             padding-left: 26px;
         }
     }
     .lead {
-        font-family: "source-sans-pro",sans-serif;
+        font-family: "proxima-nova-alt",sans-serif;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 800;
         text-transform: uppercase;
-        color: @greenMedium;
+        color: @greenHeader;
     }
+}
 
 
 #people {
@@ -329,7 +335,7 @@ footer, #faq, #featurettes1, #featurettes2 {
         h1 {
             font-size: 70px;
             margin: 40px 0 40px;
-            span {
+            span.triangle {
                 background: url('../img/triangle.png') no-repeat center;
                 padding-left: 18px;
             }
@@ -514,4 +520,9 @@ form #newspriorities {
         font-weight: bold;
         text-transform: uppercase;
     }
+}
+
+.awards {
+    text-align: center;
+    margin: 20px 0 20px 0;
 }
