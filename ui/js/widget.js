@@ -1,28 +1,22 @@
 $(document).ready(function() {
-    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=spring2015&date_end=2015-04-01&goal=100000&date_start=2015-02-01";
+    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=election2015&date_end=2015-04-13&goal=50000&date_start=2015-03-20&multiplier=3";
 
     $.getJSON(url, function(data) {
-        //console.log( 'once' );
         updateResults(data, 'once');
     });
 
     var progress = setInterval(function() {
         /* query the completion percentage from the server */
         $.getJSON(url, function(data) {
-            //console.log( 'update' );
             updateResults(data, 'update');
         });
     }, 5000);
 
     function updateResults(data, mode) {
-        //console.log( 'updateResults' );
         var result = data.result;
         var left_days = result.left_days >= 1 ? result.left_days : 0;
         var left_hours = result.left_hours >= 1 ? result.left_hours : 0;
         var left_mins = result.left_mins >= 1 ? result.left_mins : 0;
-        //console.log( left_mins );
-        //console.log( left_hours );
-        //console.log( left_days );
 
         $(".goal").text(result.goal_formatted);
         $(".percentage").text(result.percentage);
@@ -83,7 +77,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON("https://widgets.thetyee.ca/builderlist.json?cb=?", function(data) {
+    $.getJSON("https://widgets.thetyee.ca/builderlist.json?date_start=2015-03-20&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
