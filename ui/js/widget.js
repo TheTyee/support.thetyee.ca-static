@@ -91,7 +91,7 @@ $(document).ready(function() {
         var last = builders.pop();
         var count = result.count;
         $("#builder-count").text(FormatNumberBy3(count, ".", ","));
-        if (builders >= 1) {
+        if (builders.length >= 1) {
             $.each(builders, function(index, c) {
                 $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
             });
