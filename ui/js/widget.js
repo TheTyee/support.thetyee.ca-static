@@ -53,7 +53,11 @@ $(document).ready(function() {
                 $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             });
             $.each(result.votes, function(index, v) {
-                $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+                if (v === null) {
+                    return 'continue'; // Bad API design. TODO fix in widgets.thetyee.ca
+                } else {
+                    $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+                }
             });
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
                 $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
@@ -67,7 +71,11 @@ $(document).ready(function() {
             });
             $('ul.priorities li').remove();
             $.each(result.votes, function(index, v) {
-                $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+                if (v === null) {
+                    return 'continue'; // Bad API design. TODO fix in widgets.thetyee.ca
+                } else {
+                    $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+                }
             });
             if (result.percentage > 99.99) {
                 clearInterval(progress);
@@ -83,10 +91,14 @@ $(document).ready(function() {
         var last = builders.pop();
         var count = result.count;
         $("#builder-count").text(FormatNumberBy3(count, ".", ","));
-        $.each(builders, function(index, c) {
-            $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
-        });
-        $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');
+        if (builders >= 1) {
+            $.each(builders, function(index, c) {
+                $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
+            });
+            $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');
+        } else { // We only have one so far! 
+            $("#builder-list ul").append('<li class="last">' + last.first_name + ' ' + last.last_name + '</li>');
+        }
     });
 
 });
