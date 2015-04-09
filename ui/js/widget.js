@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=election2015&date_end=2015-04-13&goal=50000&date_start=2015-03-20&multiplier=3";
+    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=election2015&date_end=2015-04-14&goal=75000&date_start=2015-03-20&multiplier=3";
 
     $.getJSON(url, function(data) {
         updateResults(data, 'once');
@@ -59,11 +59,12 @@ $(document).ready(function() {
                     $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
                 }
             });
-            if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
-                $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
-            } else if (result.left_days === 0) {
-                $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
-            }
+            // Don't need this for now...
+            //if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
+            //$("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
+            //} else if (result.left_days === 0) {
+            //$("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
+            //}
         } else if (mode === 'update') {
             $(".amount").text(FormatNumberBy3(result.raised, ".", ","));
             $('.contributor-list li:first').slideUp(function() {
