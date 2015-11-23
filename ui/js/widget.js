@@ -1,29 +1,38 @@
 $(document).ready(function() {
-    url = "https://widgets.thetyee.ca/progress.json?cb=?&campaign=election2015&date_end=2015-04-14&goal=75000&date_start=2015-03-20&multiplier=3";
+    url = "http://develop.widgets.thetyee.ca/progress.json?monthlyonly=1&campaign=election2015&date_end=2015-12-14&goal=20000&date_start=2015-08-01";
+
+
 
     $.getJSON(url, function(data) {
+        //console.log( 'once' );
         updateResults(data, 'once');
     });
 
     var progress = setInterval(function() {
         /* query the completion percentage from the server */
         $.getJSON(url, function(data) {
+            //console.log( 'update' );
             updateResults(data, 'update');
         });
     }, 5000);
 
     function updateResults(data, mode) {
+        //console.log( 'updateResults' );
         var result = data.result;
         var left_days = result.left_days >= 1 ? result.left_days : 0;
         var left_hours = result.left_hours >= 1 ? result.left_hours : 0;
         var left_mins = result.left_mins >= 1 ? result.left_mins : 0;
+        //console.log( left_mins );
+        //console.log( left_hours );
+        //console.log( left_days );
 
         $(".goal").text(result.goal_formatted);
+		$(".onetimetotal").text(result.raised_onetime);
         $(".percentage").text(result.percentage);
-        $(".count").text(result.people);
-        $(".remaining").text(result.remaining);
-        $(".progress-bar").css('width', result.percentage + '%');
-        $(".progress-bar").attr('aria-valuenow', result.percentage);
+        $(".count").text(result.people_monthly);
+        $(".remaining").text(result.remaining_monthly);
+        $(".progress-bar").css('width', result.percentage_monthly + '%');
+        $(".progress-bar").attr('aria-valuenow', result.percentage_monthly);
         $(".progress-bar").attr('aria-valuemin', 0);
         $(".progress-bar").attr('aria-valuemax', result.goal);
         if (left_days > 1) {
@@ -41,7 +50,7 @@ $(document).ready(function() {
             $({
                 countNum: $('span.amount').text()
             }).animate({
-                countNum: result.raised
+                countNum: result.raised_monthly
             }, {
                 duration: 4000,
                 easing: 'linear',
@@ -52,33 +61,26 @@ $(document).ready(function() {
             $.each(result.contributors, function(index, c) {
                 $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             });
-            $.each(result.votes, function(index, v) {
-                if (v === null) {
-                    return 'continue'; // Bad API design. TODO fix in widgets.thetyee.ca
-                } else {
-                    $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
-                }
+			if (v.count > 0) {
+				$.each(result.votes, function(index, v) {
+					$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             });
-            // Don't need this for now...
-            //if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
-            //$("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
-            //} else if (result.left_days === 0) {
-            //$("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
-            //}
+			}
+            if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
+                $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
+            } else if (result.left_days === 0) {
+                $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
+            }
         } else if (mode === 'update') {
-            $(".amount").text(FormatNumberBy3(result.raised, ".", ","));
+            $(".amount").text(FormatNumberBy3(result.raised_monthly, ".", ","));
             $('.contributor-list li:first').slideUp(function() {
                 $(this).appendTo($('.contributor-list')).slideDown();
             });
             $('ul.priorities li').remove();
             $.each(result.votes, function(index, v) {
-                if (v === null) {
-                    return 'continue'; // Bad API design. TODO fix in widgets.thetyee.ca
-                } else {
-                    $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
-                }
+                $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             });
-            if (result.percentage >= 100) {
+            if (result.percentage > 99.99) {
                 clearInterval(progress);
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
                 $('.remaining').text('$0');
@@ -86,20 +88,16 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON("https://widgets.thetyee.ca/builderlist.json?date_start=2015-03-20&cb=?", function(data) {
+    $.getJSON("http://develop.widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
         var count = result.count;
         $("#builder-count").text(FormatNumberBy3(count, ".", ","));
-        if (builders.length >= 1) {
-            $.each(builders, function(index, c) {
-                $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
-            });
-            $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');
-        } else { // We only have one so far! 
-            $("#builder-list ul").append('<li class="last">' + last.first_name + ' ' + last.last_name + '</li>');
-        }
+        $.each(builders, function(index, c) {
+            $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
+        });
+        $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');
     });
 
 });
