@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    url = "http://develop.widgets.thetyee.ca/progress.json?monthlyonly=1&campaign=election2015&date_end=2015-12-14&goal=20000&date_start=2015-08-01";
+    url = 
+    "http://preview.widgets.thetyee.ca/progress.json?monthlyonly=1&campaign=election2015&date_end=2015-12-14&goal=20000&date_start=2015-11-01";
 
 
 
@@ -88,7 +89,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON("http://develop.widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
+    $.getJSON("http://preview.widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
