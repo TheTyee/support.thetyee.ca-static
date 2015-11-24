@@ -1,6 +1,6 @@
 $(document).ready(function() {
     url = 
-    "http://preview.widgets.thetyee.ca/progress.json?monthlyonly=1&campaign=election2015&date_end=2015-12-14&goal=20000&date_start=2015-11-01";
+    "http://preview.widgets.thetyee.ca/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-01";
 
 
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
                     $('.amount').text(FormatNumberBy3(Math.floor(this.countNum), ".", ","));
                 }
             });
-            $.each(result.contributors, function(index, c) {
+            $.each(result.contributors_monthly, function(index, c) {
                 $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             });
 			if (v.count > 0) {
