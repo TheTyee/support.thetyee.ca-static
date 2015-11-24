@@ -63,11 +63,9 @@ $(document).ready(function() {
             $.each(result.contributors_monthly, function(index, c) {
                 $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             });
-			if (v.count > 0) {
 				$.each(result.votes, function(index, v) {
 					$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             });
-			}
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
                 $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
             } else if (result.left_days === 0) {
