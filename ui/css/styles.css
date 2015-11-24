@@ -18,8 +18,12 @@ h3 {
   font-family: "proxima-nova-sc-osf", sans-serif;
   font-style: normal;
   font-weight: 800;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #777775;
+}
+#naked span {
+  display: inline-block;
+  margin-right: 5px;
 }
 h2 {
   font-family: "proxima-nova-alt", sans-serif;
