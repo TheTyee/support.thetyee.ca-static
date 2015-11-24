@@ -1,6 +1,6 @@
 $(document).ready(function() {
     url = 
-    "http://preview.widgets.thetyee.ca/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-01";
+    "https://widgets.thetyee.ca/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-23";
 
 
 
@@ -29,9 +29,9 @@ $(document).ready(function() {
         //console.log( left_days );
 
         $(".goal").text(result.goal_formatted);
-		$(".onetimetotal").text(result.raised_onetime);
+	$(".onetimetotal").text(result.raised_onetime);
         $(".percentage").text(result.percentage);
-        $(".count").text(result.people_monthly);
+        $(".count").text(result.people);
         $(".remaining").text(result.remaining_monthly);
         $(".progress-bar").css('width', result.percentage_monthly + '%');
         $(".progress-bar").attr('aria-valuenow', result.percentage_monthly);
@@ -88,7 +88,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON("http://preview.widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
+    $.getJSON("https://widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
