@@ -23,7 +23,7 @@ $(document).ready(function() {
         var left_days = result.left_days >= 1 ? result.left_days : 0;
         var left_hours = result.left_hours >= 1 ? result.left_hours : 0;
         var left_mins = result.left_mins >= 1 ? result.left_mins : 0;
-	var monthlyraised = (+result.raised_monthly) + (+11191);
+	var monthlyraised = result.raised_monthly;
         //console.log( left_mins );
         //console.log( left_hours );
         //console.log( left_days );
@@ -52,7 +52,7 @@ $(document).ready(function() {
             $({
                 countNum: $('span.amount').text()
             }).animate({
-                countNum: monthlyraised
+                countNum: result.raised_monthly
             }, {
                 duration: 4000,
                 easing: 'linear',
@@ -74,7 +74,7 @@ $(document).ready(function() {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
             }
         } else if (mode === 'update') {
-            $(".amount").text(FormatNumberBy3(monthlyraised, ".", ","));
+            $(".amount").text(FormatNumberBy3(result.raised_monthly, ".", ","));
             $('.contributor-list li:first').slideUp(function() {
                 $(this).appendTo($('.contributor-list')).slideDown();
             });
