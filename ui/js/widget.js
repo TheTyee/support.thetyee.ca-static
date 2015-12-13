@@ -2,8 +2,6 @@ $(document).ready(function() {
     url =
     App.widgeturi + "/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-23";
 
-
-
     $.getJSON(url, function(data) {
         //console.log( 'once' );
         updateResults(data, 'once');
@@ -88,7 +86,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON("https://widgets.thetyee.ca/builderlist.json?monthlyonly=1&cb=?", function(data) {
+    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=1&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
