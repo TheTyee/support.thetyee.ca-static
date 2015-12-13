@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    url = 
-    "https://widgets.thetyee.ca/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-23";
+    url =
+    App.widgeturi + "/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-23";
 
 
 
