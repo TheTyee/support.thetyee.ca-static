@@ -27,7 +27,7 @@ $(document).ready(function() {
         //console.log( left_days );
 
         $(".goal").text(result.goal_formatted);
-	$(".onetimetotal").text(result.raised_onetime);
+	$(".onetimetotal").text(FormatNumberBy3(result.raised_onetime_);
         $(".percentage").text(result.percentage);
         $(".count").text(result.people);
         $(".remaining").text(result.remaining_monthly);
