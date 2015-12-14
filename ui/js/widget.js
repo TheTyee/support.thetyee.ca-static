@@ -78,7 +78,7 @@ $(document).ready(function() {
             $.each(result.votes, function(index, v) {
                 $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             });
-            if (result.percentage > 99.99) {
+            if (result.percentage_monthly > 99.99) {
                 clearInterval(progress);
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
                 $('.remaining').text('$0');
