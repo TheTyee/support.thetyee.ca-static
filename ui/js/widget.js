@@ -1,6 +1,6 @@
 $(document).ready(function() {
     url =
-    App.widgeturi + "/progress.json?monthlyonly=1&multiplier=1&date_end=2015-12-15&goal=20000&date_start=2015-11-23";
+    App.widgeturi + "/progress.json?monthlyonly=0&multiplier=12&date_end=2016-05-31&goal=25000&date_start=2016-05-01";
 
     $.getJSON(url, function(data) {
         //console.log( 'once' );
@@ -58,12 +58,17 @@ $(document).ready(function() {
                     $('.amount').text(FormatNumberBy3(Math.floor(this.countNum), ".", ","));
                 }
             });
-            $.each(result.contributors_monthly, function(index, c) {
+            // Monthly contributors
+            //$.each(result.contributors_monthly, function(index, c) {
+                //$('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
+            //});
+            $.each(result.contributors, function(index, c) {
                 $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             });
-				$.each(result.votes, function(index, v) {
-					$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
-            });
+            // News priority votes
+            //$.each(result.votes, function(index, v) {
+                //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+            //});
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
                 $("#campaign-end").html('<p class="alert alert-warning">The campaign is now over but you can still join The Tyee and help bring more great independent journalism to national issues. Thanks to all who signed up.</p>');
             } else if (result.left_days === 0) {
@@ -74,10 +79,11 @@ $(document).ready(function() {
             $('.contributor-list li:first').slideUp(function() {
                 $(this).appendTo($('.contributor-list')).slideDown();
             });
-            $('ul.priorities li').remove();
-            $.each(result.votes, function(index, v) {
-                $('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
-            });
+            // News priorities
+            //$('ul.priorities li').remove();
+            //$.each(result.votes, function(index, v) {
+                //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
+            //});
             if (result.percentage_monthly > 99.99) {
                 clearInterval(progress);
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
