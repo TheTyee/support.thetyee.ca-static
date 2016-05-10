@@ -74,6 +74,7 @@ h3 {
 }
 #builder-list {
   margin-bottom: 40px;
+  margin-top: 30px;
 }
 img {
   max-width: 100%;
@@ -244,6 +245,7 @@ header h2 {
 }
 #builder-list {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 #builder-list ul {
   margin: 0;
@@ -392,6 +394,7 @@ footer,
   }
   #builder-list {
     margin-bottom: 60px;
+    margin-top: 30px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
