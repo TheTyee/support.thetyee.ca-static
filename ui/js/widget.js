@@ -1,6 +1,6 @@
 $(document).ready(function() {
     url =
-        App.widgeturi + "/progress.json?monthlyonly=0&multiplier=12&date_end=2016-05-31&goal=25000&date_start=2016-05-01";
+        App.widgeturi + "/progress.json?monthlyonly=0&multiplier=12&date_end=2016-05-30&goal=25000&date_start=2016-05-16";
 
     $.getJSON(url, function(data) {
         //console.log( 'once' );
