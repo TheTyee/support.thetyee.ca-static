@@ -1,6 +1,6 @@
 $(document).ready(function() {
     url =
-        App.widgeturi + "/progress.json?monthlyonly=0&multiplier=12&date_end=2016-05-31&goal=25000&date_start=2016-05-16";
+        App.widgeturi + "/progress.json?monthlyonly=0&multiplier=12&date_end=2016-05-31&goal=25000&date_start=2016-05-01";
 
     $.getJSON(url, function(data) {
         //console.log( 'once' );
@@ -92,7 +92,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2016-05-16&cb=?", function(data) {
+    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2016-05-01&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
