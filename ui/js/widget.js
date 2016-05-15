@@ -30,9 +30,9 @@ $(document).ready(function() {
         $(".onetimetotal").text(FormatNumberBy3(result.raised_onetime));
         $(".percentage").text(result.percentage);
         $(".count").text(result.people);
-        $(".remaining").text(result.remaining_monthly);
-        $(".progress-bar").css('width', result.percentage_monthly + '%');
-        $(".progress-bar").attr('aria-valuenow', result.percentage_monthly);
+        $(".remaining").text(result.remaining);
+        $(".progress-bar").css('width', result.percentage + '%');
+        $(".progress-bar").attr('aria-valuenow', result.percentage);
         $(".progress-bar").attr('aria-valuemin', 0);
         $(".progress-bar").attr('aria-valuemax', result.goal);
         if (left_days > 1) {
@@ -50,7 +50,7 @@ $(document).ready(function() {
             $({
                 countNum: $('span.amount').text()
             }).animate({
-                countNum: result.raised_monthly
+                countNum: result.raised
             }, {
                 duration: 4000,
                 easing: 'linear',
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
             }
         } else if (mode === 'update') {
-            $(".amount").text(FormatNumberBy3(result.raised_monthly, ".", ","));
+            $(".amount").text(FormatNumberBy3(result.raised, ".", ","));
             $('.contributor-list li:first').slideUp(function() {
                 $(this).appendTo($('.contributor-list')).slideDown();
             });
@@ -84,7 +84,7 @@ $(document).ready(function() {
             //$.each(result.votes, function(index, v) {
             //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             //});
-            if (result.percentage_monthly > 99.99) {
+            if (result.percentage > 99.99) {
                 clearInterval(progress);
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
                 $('.remaining').text('$0');
