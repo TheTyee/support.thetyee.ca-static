@@ -92,7 +92,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2016-05-01&cb=?", function(data) {
+    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2016-05-15&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
