@@ -326,6 +326,12 @@ footer,
 #featurettes2 {
   background: url('../img/section-bg-mapleleafs.png') repeat;
 }
+#organizations {
+  padding-bottom: 20px;
+}
+#organizations .row {
+  padding: 20px 0px 20px 0px;
+}
 @media screen and (max-width: 768px) {
   .video-container {
     padding-bottom: 50%;
