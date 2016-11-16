@@ -1,5 +1,4 @@
 @import "bootstrap.min.css";
-@import "recurly.css";
 
 .box-shadow(@style, @c) when (iscolor(@c)) {
     box-shadow:         @style @c;
@@ -399,7 +398,38 @@ footer, #faq, #featurettes1, #featurettes2 {
 
 // END OF SECTIONS
 
+// Recurly
+.payment-fields {
+    max-width: 520px;
+}
+.recurly-hosted-field {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.recurly-hosted-field:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)
+}
 
+button#subscribe {
+    margin-bottom: 20px;
+}
 
 @media screen and (max-width: 768px) {
 	.video-container { 
@@ -535,96 +565,16 @@ html.lt-ie7 {
 
 
 /// OLD STYLES BELOW 
-/* Recurly overrides */
-#recurly-subscribe .due_now {
-    display: none;
-}
-
-#recurly-subscribe .name {
-    display: none;
-}
-
-#recurly-subscribe .recurly .plan .recurring_cost {
-    text-align: left;
-    float: left;
-}
-
-#recurly-subscribe .cost {
-    float: left;
-}
-
-#recurly-subscribe .interval {
-    font-weight: bold;
-    float: left;
-    text-transform: uppercase;
-    font-size: 1em;
-    padding-top: 16px;
-    margin-left: 10px;
-}
-
-.recurly .contact_info, .recurly .billing_info, .recurly .accept_tos, .recurly .footer {
-    padding: 0;
-}
-
-.recurly button.submit {
-    background: none;
-    box-shadow: none;
-    text-shadow: none;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 6px;
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-    font-weight: normal;
-    cursor: pointer;
-}
-.recurly button.submit:hover {
-    color: white;
-    text-decoration: none;
-    background-color: darken( #5cb85c, 10%);
-}
-
-.recurly .field .placeholder {
-    line-height: inherit;
-}
-.recurly input[type=text] {
-    height: 24px;
-}
 
 #content {
-    //max-width: 800px;
-    .recurly {
-        width: auto;
-        max-width: 500px;
-    }
-
 
 }
 
-/* Really wish I didn't need to do this, but Recurly's form is not responsive! */
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
-    .recurly .field {
-        width: auto;
-    }
-    .recurly .field.last_name, .recurly .field.cvv, .recurly .field.zip {
-        margin-left: 0;
-    }
 
-    .recurly .field input[type=text] {
-        width: auto;
-    }
-
-    .recurly .payment_method .payment_option {
-        float: left;
-        margin-top: 10px;
-    }
 }
-
-
 
 //.tab-content, #content-inner {
     //min-height: 600px;
