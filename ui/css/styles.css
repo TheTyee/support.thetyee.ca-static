@@ -236,8 +236,8 @@ header h2 {
   margin-top: 20px;
 }
 #form-onetime label {
-  margin-top: 20px;
   font-weight: normal;
+  margin: 0px 0px 10px 0px;
 }
 #form-onetime .input-group {
   margin-bottom: 20px;
@@ -331,6 +331,9 @@ footer,
 #organizations .row {
   padding: 20px 0px 20px 0px;
 }
+#powermap-pitch {
+  margin-top: 40px;
+}
 .payment-fields {
   max-width: 520px;
 }
@@ -396,7 +399,7 @@ button#subscribe {
   }
   #campaign-copy h1 {
     font-size: 60px;
-    margin: 40px 0 40px;
+    margin: 40px 0 10px;
   }
   #campaign-copy h1 span.triangle {
     background: url('../img/triangle.png') no-repeat center;
