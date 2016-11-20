@@ -22,6 +22,8 @@
 @greyDark: #5D5D5C;
 @redDark: #d51e00;
 @greenHeading: #9fb501;
+@greenPower: #819C07;
+@leadPower: #041E41;
 
 // BASE
 body {
@@ -137,7 +139,7 @@ img {
 header {
     background: @greyDark;
     overflow: hidden;
-    height: 63px;
+    height: 100px;
 }
 
 footer, #faq, #featurettes1, #featurettes2 {
@@ -172,13 +174,13 @@ font-size: 2.5rem;
 
 
 header h1 {
-    background: url('../img/tyee-logo-national-150px.png') no-repeat 50px 8px @greenHeader;
-    margin: 0;
-    padding: 14px 0 10px 0;
+    //background: url('../img/tyee-logo-national-150px.png') no-repeat 50px 8px @greenHeader;
+    //margin: 0;
+    //padding: 14px 0 10px 0;
     text-indent: -5000px;
-    width: 250px;
-    border-right: 1px solid white;
-    float: left;
+    //width: 250px;
+    //border-right: 1px solid white;
+    //float: left;
 }
 
 header h2 {
@@ -193,6 +195,7 @@ header h2 {
     top: 2px;
     left: 24px;
     text-transform: uppercase;
+    text-indent: -5000px;
     border-bottom: none;
 }
 
@@ -212,11 +215,11 @@ header h2 {
         font-family: "proxima-nova-alt",sans-serif;
         font-style: normal;
         font-weight: 800;
-        color: @redDark;
+        color: @greenPower;
         font-size: 40px;
-        margin: 40px 0 20px;
+        margin: 0 0 20px;
         span.join-us {
-            color: @greenHeader;
+            color: @greenPower;
         }
         span.triangle {
             background: url('../img/triangle.png') no-repeat center;
@@ -228,7 +231,7 @@ header h2 {
         font-style: normal;
         font-weight: 800;
         text-transform: uppercase;
-        color: @greenHeader;
+        color: @leadPower;
     }
 }
 
@@ -378,14 +381,16 @@ header h2 {
 
 // THEME (adjust layout or module based on a theme)
 header {
-    background: url('../img/header-bg-national.png') repeat;
+    background: url('../img/header-bg-powermap.png') no-repeat top left;
     h1 {
-        background: url('../img/tyee-logo-mapleleaf.png') no-repeat center center;
+        //background: url('../img/tyee-logo-mapleleaf.png') no-repeat center center;
         border: none;
+        text-indent: -5000px;
     }
 }
 footer, #faq, #featurettes1, #featurettes2 {
-    background: url('../img/section-bg-mapleleafs.png') repeat;
+    background: url('../img/section-bg-powermap.png') repeat-x bottom left #223958;;
+    color: white;
 }
 
 #organizations { 
