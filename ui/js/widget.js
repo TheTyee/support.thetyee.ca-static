@@ -63,7 +63,14 @@ $(document).ready(function() {
             //$('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
             //});
             $.each(result.contributors, function(index, c) {
-                $('ul.contributor-list').append('<li id="' + index + '">' + c.name + ', ' + c.city + ', ' + c.state + '</li>');
+                var city = c.city;
+                var state = c.state;
+                var locationStr = '';
+                if ( city && state ) {
+                    // Needed for new "In memory/honour" names
+                    locationStr = ', ' + city + ', ' + state;
+                }
+                $('ul.contributor-list').append('<li id="' + index + '">' + c.name + locationStr + '</li>');
             });
             // News priority votes
             //$.each(result.votes, function(index, v) {
