@@ -66,7 +66,7 @@ $(document).ready(function() {
                 var city = c.city;
                 var state = c.state;
                 var locationStr = '';
-                if ( city && state ) {
+                if (city && state) {
                     // Needed for new "In memory/honour" names
                     locationStr = ', ' + city + ', ' + state;
                 }
