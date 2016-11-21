@@ -2,6 +2,7 @@
 body {
   font-family: "source-sans-pro", sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
 a {
   color: #E74117;
@@ -69,7 +70,12 @@ h3 {
   font-style: normal;
   font-weight: 300;
   color: #5d5d5c;
-  font-size: 2.8rem;
+  font-size: 2.25rem;
+}
+/* spacing between testimonials */
+.testimonial .row {
+  padding-top: 2rem;
+  margin-bottom: 2.5rem;
 }
 #builder-list {
   margin-bottom: 40px;
@@ -411,7 +417,7 @@ button.subscribe {
     font-size: 18px;
   }
   .testimonial p.quotation {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 1.2;
   }
   #form-onetime .input-group {
@@ -464,6 +470,10 @@ button.subscribe {
   .testimonial img {
     display: block;
   }
+  .testimonial .row {
+    padding-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
   #withthehelp {
     padding-top: 40px;
     padding-bottom: 20px;
@@ -501,7 +511,7 @@ form #newspriorities label {
 }
 @media screen and (min-width: 1200px) {
   p.quotation {
-    margin-top: 50px;
+    margin-top: 30px;
   }
   #people {
     margin-top: 0px;
