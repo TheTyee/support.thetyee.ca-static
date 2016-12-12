@@ -293,6 +293,9 @@ header h2 {
   font-size: 200%;
   font-weight: bold;
 }
+#campaign-widget .time-left {
+  font-size: 90%;
+}
 #campaign-widget .contributor-list {
   list-style: none;
   margin: 0;
