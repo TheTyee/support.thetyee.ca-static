@@ -77,7 +77,7 @@ $(document).ready(function() {
             //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             //});
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
-                $("#campaign-end").html('<p class="alert alert-warning">This campaign ended on May 30, 2016. But you are welcome to contribute still.</p>');
+                $("#campaign-end").html('<p class="alert alert-warning">This campaign ended on Dec 12, 2016. But you are welcome to contribute still.</p>');
             } else if (result.left_days === 0) {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
             }
