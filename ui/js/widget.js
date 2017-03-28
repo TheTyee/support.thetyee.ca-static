@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    url =
-        App.widgeturi + "/progress.json?monthlyonly=0&multiplier=6&date_end=2016-12-13&goal=65000&date_start=2016-11-17";
+    url =  App.widgeturi + "/progress.json?monthlyonly=0&multiplier=2&date_end=2017-04-20&goal=20000&date_start=2017-04-05";
 
     $.getJSON(url, function(data) {
         //console.log( 'once' );
@@ -77,7 +76,7 @@ $(document).ready(function() {
             //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             //});
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
-                $("#campaign-end").html('<p class="alert alert-warning">This campaign ended on Dec 12, 2016. But you are welcome to contribute still.</p>');
+                $("#campaign-end").html('<p class="alert alert-warning">This campaign ended on April 20, 2017. But you are welcome to contribute still.</p>');
             } else if (result.left_days === 0) {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
             }
@@ -99,7 +98,7 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2016-11-17&cb=?", function(data) {
+    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2017-04-05&cb=?", function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
