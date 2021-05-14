@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    url =  App.widgeturi + "/progress.json?monthlyonly=0&multiplier=2&date_end=2017-04-20&goal=20000&date_start=2017-04-05";
-
+    url =  App.widgeturi + "/progress.json?monthly_number_only=1&monthlyonly=1&multiplier=1&date_end=2021-06-08&goal=500&date_start=2021-05-16&campaign=Spring2021";
     $.getJSON(url, function(data) {
         //console.log( 'once' );
         updateResults(data, 'once');
@@ -25,7 +24,8 @@ $(document).ready(function() {
         //console.log( left_hours );
         //console.log( left_days );
 
-        $(".goal").text(result.goal_formatted);
+       // $(".goal").text(result.goal_formatted); // enable this to get dollar sign back
+       $(".goal").text(result.goal);
         $(".onetimetotal").text(FormatNumberBy3(result.raised_onetime));
         $(".percentage").text(result.percentage);
         $(".count").text(result.people);
@@ -36,10 +36,14 @@ $(document).ready(function() {
         $(".progress-bar").attr('aria-valuemax', result.goal);
         if (left_days > 1) {
             $(".days").html(left_days);
-            $("i.days-left").html("days left");
+            $("i.days-left").html("days");
+           // left_hours = left_hours - (left_days * 24 );
+                         $(".hours").html('and <span class="hour"">' + left_hours + '</span> hours left ');
         } else if (left_days == 1) {
             $(".days").html(left_days);
-            $("i.days-left").html("day left");
+            $("i.days-left").html("day");
+                         $(".hours").html('and <span class="hour"">' + left_hours + '</span> hours left ');
+
         }
         if (left_days === 0) {
             $(".hours").html('<span class="hour"">' + left_hours + '</span> hours, ');
@@ -76,7 +80,9 @@ $(document).ready(function() {
             //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             //});
             if (result.left_days < 1 && result.left_hours < 1 && result.left_mins < 1) {
-                $("#campaign-end").html('<p class="alert alert-warning">This campaign ended on April 20, 2017. But you are welcome to contribute still.</p>');
+                console.log(" no time left");
+               $("#campaign-end").html('<p class="alert alert-warning">This campaign has completed. But you are welcome to join.</p>');
+                $("#campaign-end").show();
             } else if (result.left_days === 0) {
                 $("#campaign-end").html('<p class="alert alert-warning">Campaign ends tonight at midnight!</p>');
             }
@@ -90,7 +96,7 @@ $(document).ready(function() {
             //$.each(result.votes, function(index, v) {
             //$('ul.priorities').append('<li id="' + index + '"><span class="badge">' + v.count + ' votes</span> ' + v.name + '</li>');
             //});
-            if (result.percentage > 99.99) {
+            if (result.percentage > 99.999) {
                 clearInterval(progress);
                 $(".progress-bar").html('<span class="complete-msg">We did it!</span>');
                 $('.remaining').text('$0');
@@ -98,7 +104,8 @@ $(document).ready(function() {
         }
     }
 
-    $.getJSON(App.widgeturi + "/builderlist.json?monthlyonly=0&date_start=2017-04-05&cb=?", function(data) {
+    $.getJSON(App.widgeturi + "/builderlist.json?date_start=2021-05-16&cb=?&campaign=Spring2021", 
+function(data) {
         var result = data.result;
         var builders = result.builderlist;
         var last = builders.pop();
@@ -107,7 +114,9 @@ $(document).ready(function() {
         $.each(builders, function(index, c) {
             $('#builder-list ul').append('<li id="' + index + '">' + c.first_name + ' ' + c.last_name + '</li>');
         });
+        if (last) {
         $("#builder-list ul").append('<li class="last"> and ' + last.first_name + ' ' + last.last_name + '</li>');
+        }
     });
 
 });

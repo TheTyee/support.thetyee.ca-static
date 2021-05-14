@@ -21,6 +21,37 @@ h3 {
   padding-bottom: 10px;
   border-bottom: 1px solid #777775;
 }
+
+.btn:active, .btn.active {
+  border-bottom: 5px solid black;
+}
+
+
+.btn.next  {
+  color:black;
+  background:white;
+  
+}
+
+.btn.next:hover {
+  background: grey;
+}
+
+@media screen and (max-width: 340px) {
+  .row.manage {
+      margin-top: 30px !important;
+  }
+}
+
+.row.manage {
+
+  margin-bottom: -20px;
+}
+
+.row.manage button.manage {
+  
+   float:right; margin-top: -25px; 
+}
 #naked span {
   display: inline-block;
   margin-right: 10px;
@@ -165,7 +196,7 @@ header h2 {
   font-family: "proxima-nova-alt", sans-serif;
   font-style: normal;
   font-weight: 800;
-  color: #819C07;
+  color: black;
   font-size: 40px;
   margin: 0 0 20px;
 }
@@ -176,6 +207,13 @@ header h2 {
   background: url('../img/triangle.png') no-repeat center;
   padding-left: 26px;
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+ border-bottom: solid 2px darkred;
+    font-weight: bold;
+background: rgba(0,0,0,0.1);
+}
+
 #campaign-copy .lead {
   font-family: "proxima-nova-alt", sans-serif;
   font-style: normal;
@@ -327,8 +365,8 @@ footer,
 #faq,
 #featurettes1,
 #featurettes2 {
-  background: url('../img/section-bg-powermap.png') repeat-x bottom left #223958;
-  color: white;
+background: url('../img/section-bg-powermap.png') repeat-x bottom left #223958;
+color: white;
 }
 #organizations {
   padding-bottom: 20px;
